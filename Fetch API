@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script>
+         const settings = {
+           "async": true,
+           "crossDomain": true,
+           "url": "https://api.github.com/users/amircodes",
+           "method": "GET"
+         }
+
+         $.ajax(settings).done(function (response) {
+           console.log(response);
+
+           var name = response.name;
+           $("#name").append(name);
+
+           
+           var location = response.location;
+           $("#location").append(location);
+
+           
+           var company = response.company;
+           $("#company").append(company);
+
+           
+           var public_repos = response.public_repos;
+           $("#public_repos").append(public_repos);
+
+           
+           var following = response.following;
+           $("#following").append(following);
+
+           var followers = response.followers;
+           $("#followers").append(followers);
+
+           
+           var created_at = response.created_at;
+           $("#created_at").append(created_at);
+
+
+           
+
+         });
+      </script>
+      <style>
+      .container {
+         display: inline-flexbox;
+         padding: 4px;
+         background-color: aquamarine;
+      }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+            <div id="name">Name: </div>
+            <div id="company">Company: </div>
+            <div id="location">Location: </div>
+            <div id="public_repos">Public repos: </div>
+            <div id="following">following: </div>
+            <div id="followers">Followers: </div>
+            <div id="created_at">created at: </div>
+      </div>
+   </body>
+</html>
